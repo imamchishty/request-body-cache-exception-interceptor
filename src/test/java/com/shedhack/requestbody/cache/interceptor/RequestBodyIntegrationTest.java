@@ -60,7 +60,7 @@ public class RequestBodyIntegrationTest {
 
         // body
         assertThat(response.getBody().getApplicationName(), equalTo("demo"));
-        assertThat(response.getBody().getRequestId(), isEmptyOrNullString());
+        assertThat(response.getBody().getTraceId(), isEmptyOrNullString());
         assertThat(response.getBody().getExceptionId(), notNullValue());
         assertThat(response.getBody().getHttpStatusDescription(), equalTo("Bad Request"));
         assertThat(response.getBody().getPath(), equalTo("/problem"));
@@ -78,7 +78,7 @@ public class RequestBodyIntegrationTest {
         assertThat(response.getBody().getExceptionChain(), notNullValue());
 
         // The test interceptor should have added the request body
-        assertThat(response.getBody().getPostBody(), equalTo("{\"message\":\"What's up \",\"language\":\"German\"}"));
+        assertThat(response.getBody().getRequestBody(), equalTo("{\"message\":\"What's up \",\"language\":\"German\"}"));
 
         // header
         assertThat(response.getHeaders().get("exceptionId"), notNullValue());

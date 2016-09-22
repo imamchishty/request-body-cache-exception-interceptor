@@ -37,7 +37,7 @@ public class RequestBodyExceptionInterceptorTest {
         interceptor.handle(model, exception);
 
         // Assert
-        assertEquals(REQUEST_BODY, model.getPostBody());
+        assertEquals(REQUEST_BODY, model.getRequestBody());
     }
 
 }

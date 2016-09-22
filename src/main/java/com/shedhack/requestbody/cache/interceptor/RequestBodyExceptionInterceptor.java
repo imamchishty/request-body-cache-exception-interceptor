@@ -18,6 +18,6 @@ public class RequestBodyExceptionInterceptor implements ExceptionInterceptor {
      */
     @Override
     public void handle(ExceptionModel model, Exception exception) {
-        model.setPostBody(RequestBodyThreadLocal.get());
+        model.setRequestBody(RequestBodyThreadLocal.get());
     }
 }
