@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import javax.servlet.Filter;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Test Application
@@ -26,7 +28,7 @@ public class Application {
     }
 
     @Bean
-    public ExceptionInterceptor requestBodyExceptionInterceptor() {
-        return new RequestBodyExceptionInterceptor();
+    public List<ExceptionInterceptor> exceptionInterceptors() {
+        return Arrays.asList(new RequestBodyExceptionInterceptor());
     }
 }
